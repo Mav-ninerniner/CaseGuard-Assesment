@@ -13,3 +13,14 @@ function load_js(){
   wp_enqueue_script('bootstrap');
 }
 add_action('wp_enqueue_scripts', 'load_js');
+
+function custom_theme_enqueue_styles() {
+  // Enqueue the main stylesheet
+  wp_enqueue_style('main-stylesheet', get_stylesheet_uri());
+
+  // Enqueue jQuery for smooth scroll
+  wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
+
+?>

@@ -12,7 +12,7 @@
 
     <!-- Buttons -->
     <div class="buttons">
-      <button type="button" class="btn btn-primary">Primary Button</button>
+      <button type="button" class="btn btn-primary-style">Primary Button</button>
       <button type="button" class="btn btn-outline-primary">Secondary Button</button>
     </div>
   </div>
@@ -32,10 +32,50 @@
 <!-- Section 3 - Articles -->
 <section id="articles-section">
   <div class="container">
-    <!-- Your Articles Content Here -->
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque
-      ultrices.</p>
+    <!-- Heading -->
+    <h2>Articles Area</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+
+    <!-- Filtering Options -->
+    <div class="filtering-options">
+      <!-- Colors Filter -->
+      <div class="filter colors-filter">
+        <p>Colors:</p>
+        <?php
+                $colors = get_terms(array('taxonomy' => 'color', 'hide_empty' => false));
+                foreach ($colors as $color) {
+                    echo '<input type="checkbox" name="color" value="' . $color->term_id . '"> ' . $color->name . '<br>';
+                }
+                ?>
+      </div>
+
+      <!-- Seasons Filter -->
+      <div class="filter seasons-filter">
+        <p>Seasons:</p>
+        <?php
+                $seasons = get_terms(array('taxonomy' => 'season', 'hide_empty' => false));
+                foreach ($seasons as $season) {
+                    echo '<input type="checkbox" name="season" value="' . $season->term_id . '"> ' . $season->name . '<br>';
+                }
+                ?>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="article-search" placeholder="Search articles...">
+      </div>
+
+      <!-- Reset Button -->
+      <button id="reset-filters">Reset</button>
+    </div>
+
+    <!-- Articles Display -->
+    <div id="articles-grid" class="row">
+      <!-- Articles will be loaded here via AJAX -->
+    </div>
   </div>
 </section>
+
+
 
 <?php get_footer();?>

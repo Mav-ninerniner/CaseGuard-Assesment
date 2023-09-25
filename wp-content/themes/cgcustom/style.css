@@ -7,6 +7,71 @@ header{
   padding-top: 30px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 h2{
+  color: black;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  line-height: 46px;
+  word-wrap: break-word
+}
+
+.heading-text h1 {
+  color: black;
+  font-size: 56px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  line-height: 66px;
+  word-wrap: break-word;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+h2{
+  font-size: 36px;
+}
+
+ p {
+  color: #505050;
+  font-size: 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  word-wrap: break-word;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.general{
+  color: black;
+  font-size: 18px;
+  font-family: 'DM Sans';
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word
+}
+
+.logo {
+  float: left;
+}
+
+.articles-link {
+  float: right;
+  text-align: right;
+}
+
+.buttons {
+  display: flex;
+  font-family: 'DM Sans';
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+}
+
 .btn-primary-style{
   background: #3D2CFF; 
   color: white;
@@ -15,7 +80,40 @@ header{
   align-items: center; 
   gap: 8px; 
   display: inline-flex;
+  padding-left: 36px; 
+  padding-right: 36px; 
+  padding-top: 20px; 
+  padding-bottom: 20px;
 }
+.btn-primary-style:hover {
+  background: white;
+  color: #3D2CFF;
+  border-color: #3D2CFF; /* Border appears on hover */
+}
+.btn-primary-style:after {
+  content: " →"; /* Adding an arrow to the primary button */
+}
+
+.btn-secondary-style{
+  background: white; 
+  color: #3D2CFF; 
+  border-radius: 10px; 
+  border-color: #3D2CFF;
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 8px; 
+  display: inline-flex;
+  padding-left: 36px; 
+  padding-right: 36px; 
+  padding-top: 20px; 
+  padding-bottom: 20px;
+}
+.btn-secondary-style:hover {
+  background: #3D2CFF; 
+  color: white;
+  border-color: white; /* Border appears on hover */
+}
+
 
 .container{
   width: 100%; 
@@ -46,13 +144,19 @@ header{
 }
 
 img.first, img.second {
-  width: 550px;
-  height: 725px;
+  height: 550px;
+  width: 725px;
   object-fit: cover;
 }
 
 #articles-section{
+  padding: 20px 0;
   padding-top: 30px !important;
+}
+
+.article-heading{
+  word-wrap: break-word;
+  text-align: center;
 }
 
 #heading-section{
@@ -63,15 +167,15 @@ img.first, img.second {
   padding-bottom: 30px !important;
 }
 
-/* Articles Section */
-#articles-section {
-  padding: 20px 0;
-}
-
 .filters {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.filtering-options {
+  width: 25%;
+  float: left;
 }
 
 .articles-grid {
@@ -95,6 +199,26 @@ img.first, img.second {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  width: 74%; /* 1% subtracted for the separator line */
+  height: 50px;
+  float: right;
 }
+
+.separator {
+  float: left;
+  width: 1%;
+  height: 100%; /* or set a specific px value if needed */
+  background-color: #C7C7C7;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
 
 

@@ -6,14 +6,15 @@
     <!-- Heading and Text -->
     <div class="heading-text">
       <h1>Heading 1</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque
+      <p class="heading-para">Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit
+        aliquam sit nullam neque
         ultrices.</p>
     </div>
 
     <!-- Buttons -->
     <div class="buttons">
       <button type="button" class="btn btn-primary-style">Primary Button</button>
-      <button type="button" class="btn btn-outline-primary">Secondary Button</button>
+      <button type="button" class="btn btn-secondary-style">Secondary Button</button>
     </div>
   </div>
 </section>
@@ -31,12 +32,18 @@
 
 <!-- Section 3 - Articles -->
 <section id="articles-section">
-  <div class="container">
+  <div class="container clearfix">
     <!-- Heading -->
-    <h2>Articles Area</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-
+    <div class="article-heading">
+      <h2>Articles Area</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+    </div>
     <!-- Filtering Options -->
+    <!-- <div class="clearfix"> -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="article-search" placeholder="Search articles...">
+    </div>
     <div class="filtering-options">
       <!-- Colors Filter -->
       <div class="filter colors-filter">
@@ -59,20 +66,20 @@
                 }
                 ?>
       </div>
-
-      <!-- Search Bar -->
-      <div class="search-bar">
-        <input type="text" id="article-search" placeholder="Search articles...">
-      </div>
-
       <!-- Reset Button -->
       <button id="reset-filters">Reset</button>
+
     </div>
+
+    <div class="separator">a</div>
+
 
     <!-- Articles Display -->
     <div id="articles-grid" class="row">
       <!-- Articles will be loaded here via AJAX -->
     </div>
+    <!-- </div> End of clearfix -->
+
   </div>
 </section>
 

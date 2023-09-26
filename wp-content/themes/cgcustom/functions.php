@@ -214,5 +214,7 @@ function cgcustom_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'cgcustom_enqueue_scripts');
 
+add_theme_support( 'post-thumbnails' ); // to add cover image
+
 
 ?>

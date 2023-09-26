@@ -32,46 +32,47 @@
 
 <!-- Section 3 - Articles -->
 <section id="articles-section">
-  <div class="container clearfix">
+  <div class="container">
     <!-- Heading -->
     <div class="article-heading">
       <h2>Articles Area</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit volutpat gravida malesuada quam commodo id integer nam.
+      </p>
     </div>
     <!-- Filtering Options -->
     <!-- <div class="clearfix"> -->
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" id="article-search" placeholder="Search articles...">
-    </div>
     <div class="filtering-options">
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input class="form-control" type="text" id="article-search" placeholder="Search">
+      </div>
       <!-- Colors Filter -->
       <div class="filter colors-filter">
-        <p>Colors:</p>
+        <p class="filter-text">Colors:</p>
         <?php
                 $colors = get_terms(array('taxonomy' => 'color', 'hide_empty' => false));
                 foreach ($colors as $color) {
-                    echo '<input type="checkbox" name="color" value="' . $color->term_id . '"> ' . $color->name . '<br>';
+                    echo '<label class="filter-checkbox"><input type="checkbox" name="color" value="' . $color->term_id . '"> ' . $color->name . '</label><br>';
                 }
                 ?>
       </div>
 
       <!-- Seasons Filter -->
       <div class="filter seasons-filter">
-        <p>Seasons:</p>
+        <p class="filter-text">Seasons:</p>
         <?php
                 $seasons = get_terms(array('taxonomy' => 'season', 'hide_empty' => false));
                 foreach ($seasons as $season) {
-                    echo '<input type="checkbox" name="season" value="' . $season->term_id . '"> ' . $season->name . '<br>';
+                    echo '<label class="filter-checkbox"><input type="checkbox" name="season" value="' . $season->term_id . '"> ' . $season->name . '</label><br>';
                 }
                 ?>
       </div>
       <!-- Reset Button -->
-      <button id="reset-filters">Reset</button>
+      <button class="btn btn-primary-style" id="reset-filters">Reset</button>
 
     </div>
 
-    <div class="separator">a</div>
+    <div class="separator"></div>
 
 
     <!-- Articles Display -->

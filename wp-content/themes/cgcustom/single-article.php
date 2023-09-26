@@ -11,7 +11,7 @@
       <h1><?php the_title(); ?></h1>
       <?php if ( has_post_thumbnail() ) : ?>
       <div class="featured-image">
-        <?php the_post_thumbnail('full'); ?>
+        <?php the_post_thumbnail('medium'); ?>
       </div>
       <?php endif; ?>
     </header>

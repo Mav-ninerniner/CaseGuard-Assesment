@@ -90,7 +90,7 @@ h2{
   color: #3D2CFF;
   border-color: #3D2CFF; /* Border appears on hover */
 }
-.btn-primary-style:after {
+.buttons .btn-primary-style:after {
   content: " →"; /* Adding an arrow to the primary button */
 }
 
@@ -112,6 +112,11 @@ h2{
   background: #3D2CFF; 
   color: white;
   border-color: white; /* Border appears on hover */
+}
+
+.btn-tertiary-style{
+  background: #F2F1FA; 
+  border-radius: 8px;
 }
 
 
@@ -149,11 +154,6 @@ img.first, img.second {
   object-fit: cover;
 }
 
-#articles-section{
-  padding: 20px 0;
-  padding-top: 30px !important;
-}
-
 .article-heading{
   word-wrap: break-word;
   text-align: center;
@@ -163,9 +163,6 @@ img.first, img.second {
   margin-top: 30px !important;
 }
 
-#image-section{
-  padding-bottom: 30px !important;
-}
 
 .filters {
   display: flex;
@@ -176,6 +173,15 @@ img.first, img.second {
 .filtering-options {
   width: 25%;
   float: left;
+}
+
+.search-bar{
+  color: #767494;
+  font-size: 16px;
+  font-family: 'DM Sans';
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
 }
 
 .articles-grid {
@@ -205,12 +211,12 @@ img.first, img.second {
 }
 
 .separator {
-  float: left;
-  width: 1%;
-  height: 100%; /* or set a specific px value if needed */
-  background-color: #C7C7C7;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: grid;
+  transform: rotate(90deg); 
+  transform-origin: 0 0; 
+  border: 1px #C7C7C7 solid;
+  position: inline;
+  padding-left: 10px;
 }
 
 .clearfix::after {
@@ -219,6 +225,88 @@ img.first, img.second {
   display: table;
 }
 
+.search-bar{
+  color: #767494;
+ font-size: 16px;
+ font-family: 'DM Sans';
+ font-weight: 400;
+ line-height: 18px;
+ word-wrap: break-word;
+ padding-bottom: 37px;
+}
+
+.filter-text{
+  text-align: left !important;
+  padding-bottom: 0;
+  margin-bottom: 0;  /* Set the bottom margin to 0 */
+  color: black;
+  font-size: 28px;
+  font-family: 'DM Sans';
+  font-weight: 500;
+  line-height: 38px;
+  word-wrap: break-word
+}
+
+.filter{
+  padding-bottom: 30px;
+}
+
+.article-card {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.article-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+.filter-checkbox{
+  color: black;
+  font-size: 20px;
+  font-family: DM Sans;
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word
+}
+
+.article-title {
+  color: #5D5A88;
+  font-size: 28px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  line-height: 38px;
+  word-wrap: break-word;
+}
+
+.article-category-label,
+.article-type-label {
+  color: #8D8BA7;
+  font-size: 20px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+.article-category-value,
+.article-type-value {
+  color: #8D8BA7;
+  font-size: 20px;
+  font-family: 'DM Sans';
+  font-weight: 500;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+.article-type{
+  padding-bottom: 10px;
+}
 
 
 

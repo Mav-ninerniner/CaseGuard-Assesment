@@ -8,7 +8,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="article-section">
+  <div class="article-card-section">
     <!-- Display the article title -->
     <div class="article-title">
       <?php the_title(); ?>

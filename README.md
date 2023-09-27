@@ -4,7 +4,7 @@ This repo contains the solution for the Caseguard Technical Assessment (Wordpres
 # Prerequisites
 1. A running WordPress installation.
 2. Access to your server's database management tool (e.g., phpMyAdmin).
-Use this [link](https://www.google.com) [ for steps to set up phpMyAdmin and Wordpress]
+Use this [link](https://www.hostinger.com/tutorials/install-wordpress-locally) for steps to set up phpMyAdmin and Wordpress.
 
 ## Installation:
 1. Download/Clone this repository.

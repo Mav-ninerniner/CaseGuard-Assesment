@@ -1,24 +1,23 @@
 <?php   
 
+// Load Bootstrap CSS
 function load_css(){
   wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), false, 'all');
   wp_enqueue_style('bootstrap');
 }
 add_action('wp_enqueue_scripts', 'load_css');
 
+// Load jQuery and Bootstrap JS
 function load_js(){
-
   wp_enqueue_script('jquery');
   wp_register_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', 'jquery', false, true);
   wp_enqueue_script('bootstrap');
 }
 add_action('wp_enqueue_scripts', 'load_js');
 
+// Enqueue main theme stylesheet and jQuery for smooth scroll
 function custom_theme_enqueue_styles() {
-  // Enqueue the main stylesheet
   wp_enqueue_style('main-stylesheet', get_stylesheet_uri());
-
-  // Enqueue jQuery for smooth scroll
   wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
@@ -63,6 +62,7 @@ function cgcustom_register_articles_post_type() {
 }
 add_action( 'init', 'cgcustom_register_articles_post_type' );
 
+// Register a custom taxonomy called "Colors" for articles
 function cgcustom_register_colors_taxonomy() {
   $labels = array(
       'name'              => _x( 'Colors', 'taxonomy general name' ),
@@ -88,6 +88,7 @@ function cgcustom_register_colors_taxonomy() {
 }
 add_action( 'init', 'cgcustom_register_colors_taxonomy' );
 
+// Register a custom taxonomy called "Seasons" for articles
 function cgcustom_register_seasons_taxonomy() {
   $labels = array(
       'name'              => _x( 'Seasons', 'taxonomy general name' ),
@@ -113,15 +114,16 @@ function cgcustom_register_seasons_taxonomy() {
 }
 add_action( 'init', 'cgcustom_register_seasons_taxonomy' );
 
+// Automatically add terms to "Colors" and "Seasons" taxonomies
 function cgcustom_add_taxonomy_terms() {
-  $colors = array( 'red', 'green', 'blue', 'black' );
+  $colors = array( 'Red', 'Green', 'Blue', 'Black' );
   foreach ( $colors as $color ) {
       if ( ! term_exists( $color, 'color' ) ) {
           wp_insert_term( $color, 'color' );
       }
   }
 
-  $seasons = array( 'summer', 'fall', 'spring' );
+  $seasons = array( 'Summer', 'Fall', 'Spring' );
   foreach ( $seasons as $season ) {
       if ( ! term_exists( $season, 'season' ) ) {
           wp_insert_term( $season, 'season' );
@@ -146,6 +148,7 @@ function cgcustom_register_article_category_taxonomy() {
 }
 add_action( 'init', 'cgcustom_register_article_category_taxonomy', 0 );
 
+// Fetch articles based on filter criteria using AJAX
 function cgcustom_fetch_filtered_articles() {
   // Capture the data from the AJAX request
   $colors = isset($_POST['colors']) ? $_POST['colors'] : array();
@@ -187,7 +190,6 @@ function cgcustom_fetch_filtered_articles() {
   // Execute the query
   $articles = new WP_Query($args);
 
-  // Output the articles or a message if none are found
   if ($articles->have_posts()) {
       while ($articles->have_posts()) {
           $articles->the_post();
@@ -205,6 +207,7 @@ function cgcustom_fetch_filtered_articles() {
 add_action('wp_ajax_fetch_filtered_articles', 'cgcustom_fetch_filtered_articles'); // for logged-in users
 add_action('wp_ajax_nopriv_fetch_filtered_articles', 'cgcustom_fetch_filtered_articles'); // for non-logged-in users
 
+// Enqueue AJAX scripts
 function cgcustom_enqueue_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('cgcustom-ajax', get_template_directory_uri() . '/assets/js/ajax.js', array('jquery'), null, true);
@@ -216,5 +219,23 @@ add_action('wp_enqueue_scripts', 'cgcustom_enqueue_scripts');
 
 add_theme_support( 'post-thumbnails' ); // to add cover image
 
+
+//Enforces a rule where an article can only be associated with either a "color" or a "season" taxonomy term, but not both.
+function enforce_single_taxonomy_rule( $post_id ) {
+    // If it's not an article, exit
+    if ( get_post_type( $post_id ) !== 'article' ) {
+        return;
+    }
+
+    $colors = get_the_terms( $post_id, 'color' );
+    $seasons = get_the_terms( $post_id, 'season' );
+
+    // If both color and season are set, remove the terms from one of the taxonomies
+    if ( $colors && $seasons ) {
+        // Choosing to remove 'season', but can be adjusted as needed
+        wp_set_object_terms( $post_id, array(), 'season' );
+    }
+}
+add_action( 'save_post', 'enforce_single_taxonomy_rule' );
 
 ?>

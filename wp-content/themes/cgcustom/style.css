@@ -20,6 +20,14 @@ h1 h2{
   word-wrap: break-word
 }
 
+.heading-text{
+  /* height: 60px; */
+  width: 576px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 80%; 
+}
+
 .heading-text h1 {
   color: black;
   font-size: 56px;
@@ -52,7 +60,7 @@ h2{
   font-family: 'DM Sans';
   font-weight: 400;
   line-height: 18px;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .logo {
@@ -88,10 +96,16 @@ h2{
 .btn-primary-style:hover {
   background: white;
   color: #3D2CFF;
-  border-color: #3D2CFF; /* Border appears on hover */
+  border-color: #3D2CFF; 
 }
 .buttons .btn-primary-style:after {
-  content: " →"; /* Adding an arrow to the primary button */
+  content: " →"; 
+}
+
+#image-section{
+  margin-top: 120px;
+  margin-bottom: 82px;
+  background: #FBFBFB;
 }
 
 .btn-secondary-style{
@@ -111,19 +125,19 @@ h2{
 .btn-secondary-style:hover {
   background: #3D2CFF; 
   color: white;
-  border-color: white; /* Border appears on hover */
+  border-color: white; 
 }
 
 .btn-tertiary-style{
   background: #F2F1FA; 
   border-radius: 8px;
+  height: 40px;
+  width: 83px;
 }
-
-
-.container{
-  width: 100%; 
-  height: 100%; 
-  background: white;
+.btn-tertiary-style:hover {
+  background: #D0CFE5;
+  color: #000000;
+  border-color: #000000;
 }
 
 .image-show{
@@ -136,16 +150,16 @@ h2{
   position: absolute;
   top: 124px;
   right: 110px;
-  z-index: 2; /* This will make the first image appear on top of the second one */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+  z-index: 2; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .second {
   position: absolute;
   top: 238px;
   left: 110px;
-  z-index: 1; /* This will keep the second image below the first one */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 img.first, img.second {
@@ -172,7 +186,13 @@ img.first, img.second {
 
 .filtering-options {
   width: 25%;
-  float: left;
+  padding-right: 15px;
+}
+
+.separator {
+  width: 1px;  
+  background-color: #C7C7C7; 
+  margin-right: 25px;  
 }
 
 .search-bar{
@@ -182,41 +202,22 @@ img.first, img.second {
   font-weight: 400;
   line-height: 18px;
   word-wrap: break-word;
+  padding-bottom: 10px;
+  margin-bottom: 0;
 }
 
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.main-container {
+  display: flex;  
+  width: 100%;
+  padding-top: 60px;
 }
 
-.article-card {
-  border: 1px solid #e0e0e0;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.article-image img {
-  max-width: 100%;
-  height: auto;
-}
 
 #articles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-  width: 74%; /* 1% subtracted for the separator line */
-  height: 50px;
-  float: right;
-}
-
-.separator {
-  display: grid;
-  transform: rotate(90deg); 
-  transform-origin: 0 0; 
-  border: 1px #C7C7C7 solid;
-  position: inline;
-  padding-left: 10px;
+  width: 74%; 
 }
 
 .clearfix::after {
@@ -237,8 +238,10 @@ img.first, img.second {
 
 .filter-text{
   text-align: left !important;
-  padding-bottom: 0;
-  margin-bottom: 0;  /* Set the bottom margin to 0 */
+  padding-top: 27px;
+  margin-top: 0;
+  padding-bottom: 6px;
+  margin-bottom: 0;  
   color: black;
   font-size: 28px;
   font-family: 'DM Sans';
@@ -252,17 +255,16 @@ img.first, img.second {
 }
 
 .article-card {
-  border: 1px solid #e0e0e0;
   padding: 15px;
-  border-radius: 5px;
-  text-align: center;
 }
 
 .article-image img {
-  max-width: 100%;
-  height: auto;
+  width: 264px;   
+  height: 263px;     
   object-fit: cover;
   border-radius: 5px;
+  padding-bottom: 31.5px;
+  margin-bottom: 0;
 }
 
 
@@ -272,7 +274,16 @@ img.first, img.second {
   font-family: DM Sans;
   font-weight: 400;
   line-height: 18px;
-  word-wrap: break-word
+  word-wrap: break-word;
+  padding-bottom: 15px;
+}
+
+.article-text{
+  height: 60px;
+  width: 610px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 80%; 
 }
 
 .article-title {
@@ -308,5 +319,29 @@ img.first, img.second {
   padding-bottom: 10px;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+  padding-bottom: 30px;
+}
 
+.footer{
+  width: 100%; 
+  height: 100%; 
+  background: #EFEFEF;
+  padding-top: 20px;
+  padding-left: 109px;
+  padding-right: 126px;
+}
+
+.copyright-text{
+  float: right;
+  text-align: right;
+}
+
+.article-section{
+  padding-bottom: 70px;
+  margin-bottom: 0;
+}
 

@@ -8,30 +8,52 @@
     <?php endif; ?>
   </div>
 
-  <!-- Display the article title -->
-  <div class="article-title">
-    <?php the_title(); ?>
-  </div>
+  <div class="article-section">
+    <!-- Display the article title -->
+    <div class="article-title">
+      <?php the_title(); ?>
+    </div>
 
-  <!-- Display the article category (season or color) -->
-  <?php
+    <!-- Display the article category (season or color) -->
+    <?php
     $colors = get_the_terms(get_the_ID(), 'color');
     $seasons = get_the_terms(get_the_ID(), 'season');
-    $category = $colors ? $colors : ($seasons ? $seasons : null);
+    $categories = [];
+    if ($colors) {
+        $categories = array_merge($categories, $colors);
+    }
+    if ($seasons) {
+        $categories = array_merge($categories, $seasons);
+    }
+    // $category = array_merge($colors ? $colors : array(), $seasons ? $seasons : array());
+?>
 
-    if($category):
-    ?>
-  <div class="article-category">
-    <span class="article-category-label">Category</span>
-    <span class="article-category-value">:
-      <?php echo $category[0]->taxonomy; ?></span>
-  </div>
+    <div class="article-category">
+      <span class="article-category-label">Category</span>
+      <span class="article-category-value">:
+        <?php 
+            echo $categories  ? ucfirst($categories [0]->taxonomy) : 'None'; 
+        ?>
+      </span>
+    </div>
 
-  <div class="article-type">
-    <span class="article-type-label">Type</span>
-    <span class="article-type-value">:
-      <?php echo $category[0]->name; ?></span>
+    <div class="article-type">
+      <span class="article-type-label">Type</span>
+      <span class="article-type-value">:
+        <?php 
+            if ($categories) {
+                $names = array();
+                foreach($categories as $term) {
+                    $names[] = ucfirst($term->name);
+                }
+                echo implode(', ', $names);
+            } else {
+                echo 'None';
+            }
+        ?>
+      </span>
+    </div>
+
+    <a class="btn btn-tertiary-style" href="<?php the_permalink(); ?>">Read</a>
   </div>
-  <?php endif; ?>
-  <a class="btn btn-tertiary-style" href="<?php the_permalink(); ?>">Read More</a>
 </div>

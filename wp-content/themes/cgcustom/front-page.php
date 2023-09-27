@@ -32,7 +32,7 @@
 <!-- Section 3 - Articles -->
 
 <section id="articles-section">
-  <div class="container">
+  <div class="articles">
     <!-- Heading -->
     <div class="article-heading">
       <h2>Articles Area</h2>
